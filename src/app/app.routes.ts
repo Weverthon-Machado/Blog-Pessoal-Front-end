@@ -10,7 +10,6 @@ import { ChartConfiguration } from 'chart.js';
     template: `
         <div>
             <h2>Dashboard</h2>
-            <!-- Gráfico de barras será exibido aqui -->
         </div>
     `,
   
