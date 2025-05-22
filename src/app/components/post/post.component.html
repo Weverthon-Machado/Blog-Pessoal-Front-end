@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>Postagens</h2>
+
+  <form #form="ngForm" (ngSubmit)="form.valid && (post.id ? atualizar() : cadastrar())">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Título</mat-label>
+      <input matInput [(ngModel)]="post.titulo" name="titulo" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Texto</mat-label>
+      <textarea matInput rows="5" [(ngModel)]="post.texto" name="texto" required></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Tema</mat-label>
+      <input matInput [(ngModel)]="post.tema" name="tema" required>
+    </mat-form-field>
+
+    <div class="buttons">
+      <button mat-raised-button color="primary" type="submit">
+        {{ post.id ? 'Atualizar' : 'Cadastrar' }}
+      </button>
+      <button mat-raised-button color="warn" type="button" (click)="limpar()">
+        Limpar
+      </button>
+    </div>
+  </form>
+
+  <mat-divider class="divider"></mat-divider>
+
+  <div *ngFor="let postagem of listaPostagens" class="postagem">
+    <mat-card>
+      <mat-card-title>{{ postagem.titulo }}</mat-card-title>
+      <mat-card-content>
+        <p>{{ postagem.texto }}</p>
+        <small>{{ postagem.tema }} | {{ postagem.data | date: 'short' }}</small>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="accent" (click)="selecionarPostagem(postagem)">Editar</button>
+        <button mat-button color="warn" (click)="deletar(postagem.id)">Deletar</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

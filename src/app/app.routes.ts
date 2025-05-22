@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
-import { PostComponent } from './components/post/PostComponent';
+
+import { PostComponent } from './components/post/post.component';
 import { Component } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 
@@ -12,11 +13,11 @@ import { ChartConfiguration } from 'chart.js';
             <!-- Gráfico de barras será exibido aqui -->
         </div>
     `,
-    // styleUrls: ['./dashboard.component.scss']
+  
 })
 export class DashboardComponent {
 
-    // Gráfico de barras
+
     barChartConfig: ChartConfiguration<'bar'> = {
         type: 'bar',
         data: {
